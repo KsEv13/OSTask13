@@ -1,0 +1,40 @@
+Recovery:
+Detection of deadlock is especially useful if an acceptable level of recovery can be made. The 
+definition of acceptable can be stretched according to circumstances to include the following 
+techniques listed according to the order of sophistication:
+1. Abort all deadlocked processes – this is the method adopted in most general-purpose 
+systems.
+2. Re-start all deadlocked processes, however, this method may lead straight back to the 
+original Deadlock.
+3. Successfully (one at a time) abort deadlocked processes until Deadlock no longer exists. 
+The order in which this is done should reduce resources already used.
+4. Successfully (one at a time) pre-empty resources from deadlocked processes until Deadlock 
+no longer exists. The order of pre-empting should be such that to minimize the cost.
+This strategy has an advantage in interactive systems since avoidance in the other strategies 
+is quite expensive because the deadlocks are unpredictable and depend on the user's actions.
+
+Prevention:
+To prevent Deadlock at least one of the four conditions mentioned below must be denied.
+1.Mutual exclusion condition:
+A deadlock would not happen if all processes could access a resource. For instance, use LPR to 
+hold the data to print. It will send this data to the device. 
+It's called spooling.
+2. Hold and wait for the condition:
+A process could have only 1 resource at a time. After the process will stop using the 
+resource, it passes it to other processes.
+3.No preemption condition:
+If we work only with preemptive resources, then we can prevent the process from using a 
+resource: firstly give it to other processes and then give the resource back (ex: Disk or 
+Network). 
+Nevertheless, it cannot happen with all the resources (ex. printer).
+4.Circular wait condition:
+ Forcing the processes to create a list of mandatory resources beforehand and safely schedule 
+the processes.
+This method is suitable for periodic systems like batch systems or real-time systems since we 
+run a limited set of duties with known details about them.
+
+Avoidance:
+Here we are able to break the circular wait condition. If we know the resources that will be 
+used by processes, we can schedule them in a safe way or throw an error if the deadlock is 
+inevitable (the number of resources is not sufficient for some process at the beginning of 
+scheduling of all the tasks)
